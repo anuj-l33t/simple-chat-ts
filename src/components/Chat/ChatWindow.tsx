@@ -58,7 +58,7 @@ export function ChatWindow() {
     return (
       <div key={i} style={style}>
         <span style={textStyle}>
-          <span style={nameStyle}>{userContext.userState.user.name}</span>
+          <span style={nameStyle}>{message.user.name}</span>
           <br />
           {message.message}
         </span>

@@ -50,7 +50,7 @@ function App() {
     messageDispatch,
   };
 
-  const chat = appState.modalOpen ? "" : <MessageContextProvider value={messageContextValues}><Chat /> </MessageContextProvider>;
+  const chat = appState.modalOpen ? "" : <Chat />;
 
   function onChooseName() {
     setAppState({ modalOpen: false, userInput: appState.userInput });
@@ -78,7 +78,9 @@ function App() {
     <UserContextProvider value={userContextValues}>
       <MuiThemeProvider muiTheme={lightMuiTheme}>
         <div className="App">
+        <MessageContextProvider value={messageContextValues}>
           {chat}
+          </MessageContextProvider>
           <Dialog
             title="Choose your name"
             actions={modalActions}
