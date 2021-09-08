@@ -1,12 +1,11 @@
-import React, { useState, KeyboardEvent, useContext, useReducer } from "react";
+import React, { useState, KeyboardEvent, useContext } from "react";
 import { TextField, Button } from "@material-ui/core";
 import IMessage from "../../interfaces/IMessage";
 import UserContext from "../../contexts/User";
-import MessageContext, { initialMessageState, MessageContextProvider, messageReducer } from "../../contexts/Message";
+import MessageContext from "../../contexts/Message";
 
 export function ChatMessage() {
   const [inputValue, setInputValue] = useState("");
-
 
   const messageContext = useContext(MessageContext);
   const currentUser = useContext(UserContext);
@@ -18,7 +17,7 @@ export function ChatMessage() {
       message: inputValue,
     };
 
-    messageContext.messageDispatch({payload: message, type: "add"});
+    messageContext.messageDispatch({ payload: message, type: "add" });
     //messageDispatch({ type: "add", payload: message });
     //console.log(JSON.stringify(messageContext.messageState.messages));
     setInputValue("");
@@ -43,21 +42,20 @@ export function ChatMessage() {
   };
 
   return (
-
-      <div style={styles}>
-        <TextField
-          placeholder="Write message here.."
-          fullWidth={true}
-          style={fieldStyle}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyPress={handleKeyPress}
-          autoFocus
-        />
-        <Button style={btnStyles} onClick={sendMessage}>
-          {" "}
-          Send{" "}
-        </Button>
-      </div>
+    <div style={styles}>
+      <TextField
+        placeholder="Write message here.."
+        fullWidth={true}
+        style={fieldStyle}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyPress={handleKeyPress}
+        autoFocus
+      />
+      <Button style={btnStyles} onClick={sendMessage}>
+        {" "}
+        Send{" "}
+      </Button>
+    </div>
   );
 }

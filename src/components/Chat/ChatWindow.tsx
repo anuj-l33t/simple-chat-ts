@@ -1,10 +1,5 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
-import MessageContext, {
-  IMessageState,
-  initialMessageState,
-  MessageContextProvider,
-  messageReducer,
-} from "../../contexts/Message";
+import React, { useContext, useEffect, useState } from "react";
+import MessageContext from "../../contexts/Message";
 import UserContext from "../../contexts/User";
 import IMessage from "../../interfaces/IMessage";
 
